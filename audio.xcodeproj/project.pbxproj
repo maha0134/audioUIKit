@@ -13,6 +13,7 @@
 		4ABC1D692A48336F007A4170 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABC1D672A48336F007A4170 /* Main.storyboard */; };
 		4ABC1D6B2A483370007A4170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4ABC1D6A2A483370007A4170 /* Assets.xcassets */; };
 		4ABC1D6E2A483370007A4170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4ABC1D6C2A483370007A4170 /* LaunchScreen.storyboard */; };
+		4ABC1D762A486ADC007A4170 /* sampleAudio.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 4ABC1D752A486ADC007A4170 /* sampleAudio.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		4ABC1D6A2A483370007A4170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4ABC1D6D2A483370007A4170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4ABC1D6F2A483370007A4170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ABC1D752A486ADC007A4170 /* sampleAudio.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = sampleAudio.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				4ABC1D652A48336F007A4170 /* ViewController.swift */,
 				4ABC1D672A48336F007A4170 /* Main.storyboard */,
 				4ABC1D6A2A483370007A4170 /* Assets.xcassets */,
+				4ABC1D752A486ADC007A4170 /* sampleAudio.mp3 */,
 				4ABC1D6C2A483370007A4170 /* LaunchScreen.storyboard */,
 				4ABC1D6F2A483370007A4170 /* Info.plist */,
 			);
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4ABC1D6E2A483370007A4170 /* LaunchScreen.storyboard in Resources */,
+				4ABC1D762A486ADC007A4170 /* sampleAudio.mp3 in Resources */,
 				4ABC1D6B2A483370007A4170 /* Assets.xcassets in Resources */,
 				4ABC1D692A48336F007A4170 /* Main.storyboard in Resources */,
 			);
@@ -285,9 +289,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QLKDNUK9DD;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3A9B57WGTQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = audio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -303,6 +310,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mocha.audio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "dev-personal";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -314,9 +323,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = QLKDNUK9DD;
+				DEVELOPMENT_TEAM = "";
+				"DEVELOPMENT_TEAM[sdk=iphoneos*]" = 3A9B57WGTQ;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = audio/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -332,6 +344,8 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.mocha.audio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				"PROVISIONING_PROFILE_SPECIFIER[sdk=iphoneos*]" = "dev-personal";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
