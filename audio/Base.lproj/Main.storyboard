@@ -50,16 +50,43 @@
                                     <action selector="speakerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ECe-He-nDV"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NUW-jE-KsI">
+                                <rect key="frame" x="87" y="277" width="240" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Device" textLabel="AfV-pM-7uh" style="IBUITableViewCellStyleDefault" id="LfM-gk-3vr">
+                                        <rect key="frame" x="0.0" y="50" width="240" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LfM-gk-3vr" id="BY6-3W-JgX">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="AfV-pM-7uh">
+                                                    <rect key="frame" x="16" y="0.0" width="208" height="43.666667938232422"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NUW-jE-KsI" secondAttribute="trailing" constant="66" id="1PN-AJ-zI7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1lV-Un-1a8" secondAttribute="trailing" constant="114" id="7Hw-SJ-hxh"/>
                             <constraint firstItem="1lV-Un-1a8" firstAttribute="leading" secondItem="qwa-a5-01w" secondAttribute="trailing" constant="8" symbolic="YES" id="GoN-JW-kh0"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NUW-jE-KsI" secondAttribute="bottom" constant="413" id="K6T-3c-CMp"/>
                             <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fcO-D7-LyY"/>
                             <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="181.66666666666666" id="fqY-ba-EFs"/>
                             <constraint firstItem="qwa-a5-01w" firstAttribute="top" secondItem="Pw2-Fd-2RQ" secondAttribute="bottom" constant="8" symbolic="YES" id="haj-xW-m1w"/>
                             <constraint firstItem="qwa-a5-01w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="m6x-Lw-asp"/>
+                            <constraint firstItem="NUW-jE-KsI" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="87" id="nbD-JJ-64Q"/>
+                            <constraint firstItem="NUW-jE-KsI" firstAttribute="top" secondItem="qwa-a5-01w" secondAttribute="bottom" constant="82" id="tsV-Tm-SeF"/>
                             <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="uSW-HT-CCp"/>
                             <constraint firstItem="qwa-a5-01w" firstAttribute="baseline" secondItem="1lV-Un-1a8" secondAttribute="baseline" id="yls-DJ-aqY"/>
                         </constraints>
@@ -68,6 +95,7 @@
                         <outlet property="earpieceIcon" destination="qwa-a5-01w" id="1tu-ad-up2"/>
                         <outlet property="playPauseButton" destination="Pw2-Fd-2RQ" id="bJU-nN-l3e"/>
                         <outlet property="speakerIcon" destination="1lV-Un-1a8" id="wwN-kb-YGe"/>
+                        <outlet property="tableView" destination="NUW-jE-KsI" id="nsg-fb-2Qs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

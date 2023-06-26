@@ -8,14 +8,17 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 	
 	@IBOutlet weak var playPauseButton: UIButton!
 	@IBOutlet weak var earpieceIcon: UIButton!
 	@IBOutlet weak var speakerIcon: UIButton!
 	
+	@IBOutlet var tableView: UITableView!
+	
 	var audioSession: AVAudioSession?
 	var audioPlayer: AVAudioPlayer?
+	var devices = [AVAudioSessionPortDescription]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -40,6 +43,11 @@ class ViewController: UIViewController {
 		} catch {
 			print("couldn't play audio")
 		}
+		
+		//Setup the connected devices in a tableView
+		
+		tableView.dataSource = self
+		tableView.delegate = self
 	}
 	
 	func configureAudioSession() {
@@ -56,6 +64,9 @@ class ViewController: UIViewController {
 	
 	func checkConnectedDevices() {
 		if let currentRoute = audioSession?.currentRoute {
+			self.devices = currentRoute.outputs
+			self.devices.removeAll { $0.portName == "Speaker" }
+			//TODO: Comment these out
 			for output in currentRoute.outputs {
 				let portName = output.portName
 				let portType = output.portType
@@ -64,7 +75,6 @@ class ViewController: UIViewController {
 				print("Output Port Type: \(portType)")
 			}
 		}
-		
 	}
 	
 	@IBAction func playButtonTapped(_ sender: UIButton) {
@@ -101,5 +111,14 @@ class ViewController: UIViewController {
 		}
 	}
 	
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return devices.count
+	}
+	
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Device", for: indexPath)
+		cell.textLabel?.text = devices[indexPath.row].portName
+		return cell
+	}
 }
 
