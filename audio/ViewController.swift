@@ -48,6 +48,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		
 		tableView.dataSource = self
 		tableView.delegate = self
+		
+		setupNotifications()
 	}
 	
 	func configureAudioSession() {
@@ -64,16 +66,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 	
 	func checkConnectedDevices() {
 		if let currentRoute = audioSession?.currentRoute {
-			self.devices = currentRoute.outputs
-			self.devices.removeAll { $0.portName == "Speaker" }
-			//TODO: Comment these out
-			for output in currentRoute.outputs {
-				let portName = output.portName
-				let portType = output.portType
-				
-				print("Output Port Name: \(portName)")
-				print("Output Port Type: \(portType)")
+			/* For default audio playback(earpiece or speaker),
+			don't reload devices as changing category and modes
+			get rid of bluetooth devices from the output list */
+			if currentRoute.outputs.contains(where: {$0.portName == "Speaker" || $0.portName == "Receiver"}) {
+				return
 			}
+			self.devices = currentRoute.outputs
+			tableView.reloadData()
 		}
 	}
 	
@@ -119,6 +119,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Device", for: indexPath)
 		cell.textLabel?.text = devices[indexPath.row].portName
 		return cell
+	}
+	
+	func setupNotifications() {
+		// Get the default notification center instance.
+		let nc = NotificationCenter.default
+		nc.addObserver(self,
+					   selector: #selector(handleRouteChange),
+					   name: AVAudioSession.routeChangeNotification,
+					   object: nil)
+	}
+	@objc func handleRouteChange() {
+		checkConnectedDevices()
+	}
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		try? audioSession?.setCategory(.playback, mode: .default, options: [.allowBluetoothA2DP, .allowAirPlay])
 	}
 }
 
