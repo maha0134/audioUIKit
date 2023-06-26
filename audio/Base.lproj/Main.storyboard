@@ -29,7 +29,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwa-a5-01w">
                                 <rect key="frame" x="121" y="160" width="75" height="35"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="75" id="KVW-cC-65K"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="75" id="KVW-cC-65K"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -41,7 +41,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lV-Un-1a8">
-                                <rect key="frame" x="204" y="160" width="75" height="35"/>
+                                <rect key="frame" x="233.66666666666666" y="160" width="45.333333333333343" height="35"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
                                     <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
@@ -79,7 +79,7 @@
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NUW-jE-KsI" secondAttribute="trailing" constant="66" id="1PN-AJ-zI7"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1lV-Un-1a8" secondAttribute="trailing" constant="114" id="7Hw-SJ-hxh"/>
-                            <constraint firstItem="1lV-Un-1a8" firstAttribute="leading" secondItem="qwa-a5-01w" secondAttribute="trailing" constant="8" symbolic="YES" id="GoN-JW-kh0"/>
+                            <constraint firstItem="1lV-Un-1a8" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qwa-a5-01w" secondAttribute="trailing" constant="8" symbolic="YES" id="GoN-JW-kh0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NUW-jE-KsI" secondAttribute="bottom" constant="413" id="K6T-3c-CMp"/>
                             <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fcO-D7-LyY"/>
                             <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="181.66666666666666" id="fqY-ba-EFs"/>
