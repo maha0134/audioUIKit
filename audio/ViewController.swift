@@ -29,8 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 			return
 		}
 		
-		//Audio has been found
-		print("Audio found!")
+		//Audio has been found, set the text for the buttons to nil
 		speakerIcon.setTitle("", for: .normal)
 		earpieceIcon.setTitle("", for: .normal)
 		
@@ -121,6 +120,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 		return cell
 	}
 	
+	//Keep listening to any change in connected devices
 	func setupNotifications() {
 		// Get the default notification center instance.
 		let nc = NotificationCenter.default
@@ -129,12 +129,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 					   name: AVAudioSession.routeChangeNotification,
 					   object: nil)
 	}
+	
 	@objc func handleRouteChange() {
 		checkConnectedDevices()
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		try? audioSession?.setCategory(.playback, mode: .default, options: [.allowBluetoothA2DP, .allowAirPlay])
+
+		//Clear selection of icons
+		earpieceIcon.setImage(UIImage(systemName: "phone"), for: .normal)
+		speakerIcon.setImage(UIImage(systemName: "speaker"), for: .normal)
 	}
 }
 
