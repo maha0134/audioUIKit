@@ -11,13 +11,14 @@ import AVFoundation
 class ViewController: UIViewController {
 	
 	@IBOutlet weak var playPauseButton: UIButton!
+	@IBOutlet weak var earpieceIcon: UIButton!
+	@IBOutlet weak var speakerIcon: UIButton!
 	
 	var audioSession: AVAudioSession?
 	var audioPlayer: AVAudioPlayer?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
 		
 		//Check if the audio exists
 		guard let audioPath = Bundle.main.url(forResource: "sampleAudio", withExtension: "mp3") else {
@@ -27,6 +28,8 @@ class ViewController: UIViewController {
 		
 		//Audio has been found
 		print("Audio found!")
+		speakerIcon.setTitle("", for: .normal)
+		earpieceIcon.setTitle("", for: .normal)
 		
 		//Setup the AVAudioSession
 		configureAudioSession()
@@ -63,9 +66,9 @@ class ViewController: UIViewController {
 		}
 		
 	}
-
+	
 	@IBAction func playButtonTapped(_ sender: UIButton) {
-
+		
 		if let audioPlayer = audioPlayer, audioPlayer.isPlaying {
 			audioPlayer.pause()
 			try? audioSession?.setActive(false)
@@ -75,6 +78,26 @@ class ViewController: UIViewController {
 			try? audioSession?.setActive(true)
 			audioPlayer?.play()
 			playPauseButton.setTitle("Pause", for: .normal)
+		}
+	}
+	
+	@IBAction func earpieceTapped(_ sender: UIButton) {
+		do {
+			try audioSession?.setCategory(.playAndRecord, mode: .voiceChat)
+			earpieceIcon.setImage(UIImage(systemName: "phone.fill"), for: .normal)
+			speakerIcon.setImage(UIImage(systemName: "speaker"), for: .normal)
+		} catch {
+			print("Earpiece mode could not be selected")
+		}
+	}
+	
+	@IBAction func speakerTapped(_ sender: UIButton) {
+		do {
+			try audioSession?.setCategory(.playAndRecord, mode: .default, options: [.defaultToSpeaker])
+			earpieceIcon.setImage(UIImage(systemName: "phone"), for: .normal)
+			speakerIcon.setImage(UIImage(systemName: "speaker.fill"), for: .normal)
+		} catch {
+			print("Speaker mode could not be selected")
 		}
 	}
 	

@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,31 +19,65 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pw2-Fd-2RQ">
-                                <rect key="frame" x="181.66666666666666" y="122" width="30" height="30"/>
+                                <rect key="frame" x="181.66666666666666" y="122" width="29.666666666666657" height="30"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Play"/>
                                 <connections>
                                     <action selector="playButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HsO-aZ-mYr"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qwa-a5-01w">
+                                <rect key="frame" x="121" y="160" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="75" id="KVW-cC-65K"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="phone.fill" catalog="system" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="earpieceTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="spR-0b-u5W"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1lV-Un-1a8">
+                                <rect key="frame" x="204" y="160" width="75" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="speaker" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="speakerTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ECe-He-nDV"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qbl-uL-ZN0"/>
-                            <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="zwk-7j-rj8"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1lV-Un-1a8" secondAttribute="trailing" constant="114" id="7Hw-SJ-hxh"/>
+                            <constraint firstItem="1lV-Un-1a8" firstAttribute="leading" secondItem="qwa-a5-01w" secondAttribute="trailing" constant="8" symbolic="YES" id="GoN-JW-kh0"/>
+                            <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fcO-D7-LyY"/>
+                            <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="181.66666666666666" id="fqY-ba-EFs"/>
+                            <constraint firstItem="qwa-a5-01w" firstAttribute="top" secondItem="Pw2-Fd-2RQ" secondAttribute="bottom" constant="8" symbolic="YES" id="haj-xW-m1w"/>
+                            <constraint firstItem="qwa-a5-01w" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="121" id="m6x-Lw-asp"/>
+                            <constraint firstItem="Pw2-Fd-2RQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="63" id="uSW-HT-CCp"/>
+                            <constraint firstItem="qwa-a5-01w" firstAttribute="baseline" secondItem="1lV-Un-1a8" secondAttribute="baseline" id="yls-DJ-aqY"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="earpieceIcon" destination="qwa-a5-01w" id="1tu-ad-up2"/>
                         <outlet property="playPauseButton" destination="Pw2-Fd-2RQ" id="bJU-nN-l3e"/>
+                        <outlet property="speakerIcon" destination="1lV-Un-1a8" id="wwN-kb-YGe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="132" y="-34"/>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
         </scene>
     </scenes>
     <resources>
+        <image name="phone.fill" catalog="system" width="128" height="114"/>
+        <image name="speaker" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
