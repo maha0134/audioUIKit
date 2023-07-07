@@ -7,8 +7,11 @@
 
 import UIKit
 import AVFoundation
+import CoreBluetooth
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+	
+	
 	
 	@IBOutlet weak var playPauseButton: UIButton!
 	@IBOutlet weak var earpieceIcon: UIButton!
@@ -129,17 +132,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 					   name: AVAudioSession.routeChangeNotification,
 					   object: nil)
 	}
-	
+
 	@objc func handleRouteChange() {
 		checkConnectedDevices()
 	}
-	
+
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		try? audioSession?.setCategory(.playback, mode: .default, options: [.allowBluetoothA2DP, .allowAirPlay])
+		try? audioSession?.setCategory(.playback, mode: .default, options: [.allowBluetoothA2DP, .allowAirPlay, .allowBluetooth])
 
 		//Clear selection of icons
 		earpieceIcon.setImage(UIImage(systemName: "phone"), for: .normal)
 		speakerIcon.setImage(UIImage(systemName: "speaker"), for: .normal)
 	}
 }
-
